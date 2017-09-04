@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Punto1_3
+comment1.params=n
+comment1.target=int\ Fibonnacci(int)
+comment1.text=\r\n\ M\u00E9todo\ que\ se\ encarga\ de\ calcular\ los\ primeros\ n\ numeros\ de\ la\ secuencia\ de\ fibonacci.\r\n
+comment2.params=n
+comment2.target=int[]\ generarArregloDeTamanoN(int)
+comment2.text=\r\n\ Metodo\ que\ genera\ un\ arreglo\ de\ tama\u00F1o\ aleatorio,\ con\ elementos\ aleatorios.\r\n
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+comment3.text=\r\n\ M\u00E9todo\ que\ se\ encarga\ de\ ejecutar\ el\ programa\ con\ arreglos\ diferentes.\r\n
+comment4.params=n
+comment4.target=long\ tomarTiempo(int)
+comment4.text=\r\n\ M\u00E9todo\ que\ se\ encarga\ de\ tomar\ el\ tiempo\ que\ se\ demora\ ArrayMax\ en\ cada\ arreglo.\r\n
+numComments=5
