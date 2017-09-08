@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=MergeSort
+comment1.params=a
+comment1.target=void\ mergeS(int[])
+comment2.params=a\ tmp\ left\ right
+comment2.target=void\ mergeSAux(int[],\ int[],\ int,\ int)
+comment3.params=a\ tmp\ left\ right\ rightEnd
+comment3.target=void\ merge(int[],\ int[],\ int,\ int,\ int)
+comment4.params=n
+comment4.target=int[]\ generarArregloDeTamanoN(int)
+comment4.text=\r\n\ Metodo\ que\ genera\ un\ arreglo\ de\ tama\u00F1o\ aleatorio,\ con\ elementos\ aleatorios.\r\n
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+comment5.text=\r\n\ M\u00E9todo\ que\ se\ encarga\ de\ ejecutar\ el\ programa\ con\ arreglos\ diferentes.\r\n
+comment6.params=n
+comment6.target=long\ tomarTiempo(int)
+comment6.text=\r\n\ M\u00E9todo\ que\ se\ encarga\ de\ tomar\ el\ tiempo\ que\ se\ demora\ ArraySum\ para\ cada\ arreglo.\r\n
+numComments=7
