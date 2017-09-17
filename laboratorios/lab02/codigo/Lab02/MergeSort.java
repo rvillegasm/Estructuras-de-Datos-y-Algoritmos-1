@@ -1,11 +1,9 @@
 
 /**
- * Write a description of class MergeSort here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Mauricio Toro, Modificado por Rafael Villegas & Felipe Cortés
+ * @version 1
+ * Este programa permite calcular el tiempo de procesamiento, del ordenamiento de arreglos con Merge Sort, creados de forma aleatoria por uno de sus metodos.
  */
-
 import java.util.concurrent.TimeUnit;
 import java.util.Random;
 import java.util.Arrays;
@@ -57,11 +55,10 @@ public class MergeSort
             a[rightEnd] = tmp[rightEnd];
         
         try{
-           TimeUnit.MILLISECONDS.sleep(10);
+           TimeUnit.MILLISECONDS.sleep(5);
          }
          catch(Exception e)
-         {
-         }
+         {}
     }
     
     
@@ -81,7 +78,7 @@ public class MergeSort
    * Método que se encarga de ejecutar el programa con arreglos diferentes.
    */
   public static void main(String[] args){
-      for(int i = 1; i <= 400; i = i + 10)
+      for(int i = 1; i <= 400; i = i + 1)
         System.out.println(i+" "+tomarTiempo(i));
   }
   

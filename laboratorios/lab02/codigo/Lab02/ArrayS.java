@@ -1,41 +1,42 @@
 
 /**
+ * 
  * @author Mauricio Toro, Modificado por Rafael Villegas & Felipe Cortés
  * @version 1
- * Este programa permite calcular el tiempo de procesamiento, del ordenamiento de arreglos con Insertion Sort, creados de forma aleatoria por uno de sus metodos.
+ * Este programa permite calcular el tiempo de procesamiento, de la suma de arreglos, creados de forma aleatoria por uno de sus metodos.
  */
-
 import java.util.concurrent.TimeUnit;
 import java.util.Random;
 import java.util.Arrays;
 import java.util.*;
-/**
- * Método que ordena la insercion de un dato en un arreglo.
- */
-public class InsertionSort
-{ 
-   public static void insertionS(int[] A)
-  {
-       int temp,j;
-       
-       for (int i = 0; i < A.length; i++)
-       {
-         j = i;
-         while (j > 0 && A[j-1] > A[j])
-           {
-               temp = A[j];
-               A[j] = A[j-1];
-               A[j-1] = temp;
-               j = j-1;
-            }           
-       }
+
+public class ArrayS
+{
+  /**
+   * Método que se encarga de calcular la suma de los elementos de un arreglo de forma recursiva.
+   */
+  public static int ArraySum(int[] A, int n)
+  {          
+      int sum;
+      if (n == 0)
+        sum = A[0];
+      else {
+        sum = A[n] + ArraySum(A,n-1);
+        try{
+           TimeUnit.MILLISECONDS.sleep(5);
+         }
+         catch(Exception e)
+         {
+         }
+        }
+      return sum;
   }
-    
-   /**
+  
+  /**
    * Metodo que genera un arreglo de tamaño aleatorio, con elementos aleatorios.
    */
   public static int[] generarArregloDeTamanoN(int n){
-      int max = 1000000;
+      int max = 5000;
       int[] array = new int[n];
       Random generator = new Random();
       for (int i =0; i<n; i++)
@@ -47,7 +48,7 @@ public class InsertionSort
    * Método que se encarga de ejecutar el programa con arreglos diferentes.
    */
   public static void main(String[] args){
-      for(int i = 10000; i <= 1000000; i = i + 100)
+      for(int i = 1; i <= 100; i = i + 10)
         System.out.println(i+" "+tomarTiempo(i));
   }
   
@@ -57,7 +58,7 @@ public class InsertionSort
   public static long tomarTiempo(int n){
       int[] A = generarArregloDeTamanoN(n);
        long startTime = System.currentTimeMillis();
-       insertionS(A);
+       ArraySum(A, A.length - 1);
        long estimatedTime = System.currentTimeMillis() - startTime;
        return estimatedTime;
   }
