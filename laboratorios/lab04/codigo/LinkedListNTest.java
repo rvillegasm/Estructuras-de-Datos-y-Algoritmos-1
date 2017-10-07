@@ -1,3 +1,5 @@
+
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -50,10 +52,8 @@ public class LinkedListNTest {
 		assertFalse(list.contains(10));
 	}
 
-  public static void main(String[] args) {
-    System.out.println(testInsert());
-    System.out.println(testRemove());
-    System.out.println(testContains());
-  }
+  
+
+
 
 }
