@@ -17,17 +17,17 @@ import java.io.*;
 public class HashSearch {
 
 
-  //Hash Map para utilizar durante que organizara los directorios (ArrayLists) y sus respectivas llaves
-  public static HashMap<String, ArrayList<String>> dirFiles = new HashMap<String, ArrayList<String>>();
+  //Hash Map para utilizar durante que organizara los directorios (LinkedList) y sus respectivas llaves
+  public static HashMap<String, LinkedList<String>> dirFiles = new HashMap<String, LinkedList<String>>();
 
   /**
-   * Método que se encarga de ingresar todo el arbol de directorios en la HashTable, ingresa arraylists con direcciones en Strings
+   * Método que se encarga de ingresar todo el arbol de directorios en la HashTable, ingresa linkedlists con direcciones en Strings
    * @param File folder - directorio padre
    * @Throws IOException posible NullPointer Exception
    */
   public static void listFilesForFolder(File folder)
             throws IOException {
-           ArrayList<String> fileNames = new ArrayList<String>();
+           LinkedList<String> fileNames = new LinkedList<String>();
 
            if(folder.isDirectory()) {
                 File[] files = folder.listFiles();  //Arreglo Parcial para evitar Hidden y System Directories--
