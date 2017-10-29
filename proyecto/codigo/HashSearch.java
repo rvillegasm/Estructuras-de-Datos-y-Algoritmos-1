@@ -16,10 +16,11 @@ import java.io.*;
  */
 public class HashSearch {
 
-
   //Hash Map para utilizar durante que organizara los directorios (LinkedList) y sus respectivas llaves
   public static HashMap<String, LinkedList<String>> dirFiles = new HashMap<String, LinkedList<String>>();
-
+  //Hash Map que organizara los ficheros especificos que se encuentran dentro de los directorios y sus respectivas llaves
+  public static HashMap<String,String> dirsubFiles = new HashMap<String,String>();
+  
   /**
    * Método que se encarga de ingresar todo el arbol de directorios en la HashTable, ingresa linkedlists con direcciones en Strings
    * @param File folder - directorio padre
@@ -31,7 +32,7 @@ public class HashSearch {
 
            if(folder.isDirectory()) {
                 File[] files = folder.listFiles();  //Arreglo Parcial para evitar Hidden y System Directories--
-                if(files != null){
+                if(files != null){   
                     for (File fileEntry : files) {
                         //System.out.println(fileEntry.toString());
                         if (fileEntry.isDirectory()) {
@@ -41,6 +42,7 @@ public class HashSearch {
                         } else {
                             String fileName = (fileEntry.getPath()).toString();
                             fileNames.add(fileEntry.getPath());
+                            dirsubFiles.put(fileEntry.getName(),fileName); //Agrega el fichero a el hash de Ficheros
                         }
                     }
                     dirFiles.put(folder.getName(), fileNames);  //Adiciona el ArrayList en el HashMap
@@ -55,31 +57,41 @@ public class HashSearch {
    */
    public static void main(String[] args) throws IOException {
         // Autogenera el hashmap con la ruta de directorios indicada
-
+       BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+       System.out.println("Ingrese el arbol de ficheros para ser ingresados, como un ejemplo C:\\Program Files");
+       String input = reader.readLine();
+       
        long startTime = System.currentTimeMillis();
 
-       listFilesForFolder(new File("C:/Users/rafav"));
+       listFilesForFolder(new File(input));
 
        long estimatedTime = System.currentTimeMillis() - startTime;
        System.out.println("El tiempo de creacion es: "+estimatedTime+" milisegundos");
-       System.out.println("Ingrese el nombre de la carpeta que desea buscar");
+       System.out.println("-----------------------------------------------------------");
+       System.out.println("Ingrese el nombre de la carpeta o fichero que desea buscar:");
 
         //Buffered Reader para buscar el directorio (llave)
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String input = reader.readLine();
+      
+       input = reader.readLine();
 
         //Valor END terminar
         while(!input.equals("END")){
             long startTime2 = System.currentTimeMillis();
-            for(Map.Entry<String, ArrayList<String>> foldername : dirFiles.entrySet())
+            for(Map.Entry<String, LinkedList<String>> foldername : dirFiles.entrySet())
             {
                 if(input.equals(foldername.getKey())){
                     System.out.println(foldername.getValue());
                 }
             }
+            for(Map.Entry<String,String> filename : dirsubFiles.entrySet()){
+                if(input.equals(filename.getKey())){
+                    System.out.println(filename.getValue());
+                }
+            }
             long estimatedTime2 = System.currentTimeMillis() - startTime2;
             System.out.println("El tiempo de busqueda es de: "+estimatedTime2+" milisegundos");
-            System.out.println("Ingrese el nombre de la carpeta que desea buscar");
+            System.out.println("-----------------------------------------------------------");
+            System.out.println("Ingrese el nombre de la carpeta o fichero que desea buscar:");
             input = reader.readLine();
         }
         System.out.println("**Programa Terminado**");
