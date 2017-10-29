@@ -61,12 +61,17 @@ public class HashSearch {
        System.out.println("Ingrese el arbol de ficheros para ser ingresados, como un ejemplo C:\\Program Files");
        String input = reader.readLine();
        
+       Runtime runtime = Runtime.getRuntime();
+       
        long startTime = System.currentTimeMillis();
 
        listFilesForFolder(new File(input));
 
        long estimatedTime = System.currentTimeMillis() - startTime;
        System.out.println("El tiempo de creacion es: "+estimatedTime+" milisegundos");
+       long memory = runtime.totalMemory() - runtime.freeMemory();
+       System.out.println("La me memoria utilizada es de: "+memory+" bytes");
+        
        System.out.println("-----------------------------------------------------------");
        System.out.println("Ingrese el nombre de la carpeta o fichero que desea buscar:");
 
@@ -94,6 +99,7 @@ public class HashSearch {
             System.out.println("Ingrese el nombre de la carpeta o fichero que desea buscar:");
             input = reader.readLine();
         }
+        
         System.out.println("**Programa Terminado**");
         reader.close();
   }
